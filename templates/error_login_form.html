@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+            .error {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+       <form action="/login" method="post">
+        <table>
+           <tr> 
+            <td> <label for="username">Username:</label> </td>
+            <td> <input id="username" type="text" name="username" value={{username}}> 
+            <span class="error">{{user_error}}</span>
+            </td>
+           </tr>
+           <tr>
+            <td> <label for="password">Password:</label> </td>
+            <td> <input id="password" type="password" name="password" value={{password}}>
+            <span class="error">{{password_error}}</span>
+            </td>
+           </tr>
+           <tr>       
+            <td> <label for="verefypassword">Verefy password:</label> </td>
+            <td> <input id="verefypassword" type="password" name="verefypassword" value={{verefypassword}}>
+            </td>
+           </tr>
+           <tr>
+            <td> <label for="email">E-mail(optional):</label>
+            <td><input id="email" type="text" name="email" value={{email}}>
+             <span class="error">{{eml_error}}</span>
+            </td>              
+           </tr>
+        </table> 
+            <input type="submit" />
+        </form>
+    </body>
+</html>
