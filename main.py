@@ -45,9 +45,9 @@ def check_password(pwd, vpwd):
     else:
         return 'Error: only alphanumeric is allowed, with length>7'
 def check_email(eml):
-    if re.match("^[a-zA-Z0-9@.]+$", eml) is not None \
-                and (len(eml) > 3 or eml == '') \
-                and re.search("[@]", eml) is not None:
+    if (re.match("^[a-zA-Z0-9@.]+$", eml) is not None \
+                and len(eml) > 3 \
+                and re.search("[@]", eml) is not None) or eml == '':
         return ''
     else:
         return 'Error: it is not valid e-mail address'  
