@@ -40,10 +40,15 @@ def check_username(un):
     else:
         return 'Error: only alphanumeric is allowed, with length>2'
 def check_password(pwd, vpwd):
-    if re.match("^[a-zA-Z0-9]+$", pwd) is not None and len(pwd) > 7 and pwd == vpwd:
-        return ''
-    else:
-        return 'Error: only alphanumeric is allowed, with length>7'
+    error_msg = ''
+    if (re.match("^[a-zA-Z0-9]+$", pwd) is None):
+        error_msg = error_msg + 'only alphanumeric is allowed,'
+    if len(pwd) <= 7:
+        error_msg = error_msg + ' your password is too short,'
+    if pwd != vpwd:
+        error_msg = error_msg + " you entered different passwords"
+    return error_msg
+
 def check_email(eml):
     if (re.match("^[a-zA-Z0-9@.]+$", eml) is not None \
                 and len(eml) > 3 \
